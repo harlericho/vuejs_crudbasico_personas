@@ -9,7 +9,7 @@
     $con = new PDO("mysql:host=localhost;dbname=db_crudbasico", "root", "root");
 
 # Vista del sistema:
-![](preview.png "CRUD VUE JS")
+![](preview.PNG "CRUD VUE JS")
 
 ## _Realizado por:_
 ![](https://avatars.githubusercontent.com/u/42042270?s=48&v=4)
