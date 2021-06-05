@@ -9,12 +9,26 @@ var app = new Vue({
         this.listado();
     },
     methods: {
+        table() {
+            this.$nextTick(() => {
+                $("#tabla").DataTable({
+                    pageLength: 5,
+                    lengthMenu: [
+                        [5, 10, 20, -1],
+                        [5, 10, 20, "Todos"],
+                    ],
+                    language: {
+                        url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json",
+                    },
+                });
+            });
+        },
         listado: function () {
             axios.get('sentences.php?opcion=listar') //TODO: pasa como ruta la opcion a llamar
                 .then(function (response) {
-                    //console.log(response);
                     app.listados = response.data;
-
+                    $("#tabla").DataTable().destroy();
+                    app.table();
                 })
         },
         btnGuardar: function () {
@@ -111,6 +125,10 @@ var app = new Vue({
         },
         elegirDatos: function (listado) {
             app.datos = listado;
+            document.getElementById('id').value = this.datos.id;
+            document.getElementById('nombres').value = this.datos.nombres;
+            document.getElementById('direccion').value = this.datos.direccion;
+            document.getElementById('edad').value = this.datos.edad;
         },
         cerrarModal: function () {
             document.getElementById('closeNuevo').click();

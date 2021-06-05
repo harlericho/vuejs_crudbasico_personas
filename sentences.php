@@ -1,6 +1,6 @@
 <?php
 require_once "crud.php";
-require_once "route.php";
+require_once "cors.php";
 
 if ($_GET) {
     $opcion = $_GET['opcion'];
@@ -27,7 +27,7 @@ if ($_GET) {
             $data = Crud::__editar($arrayName);
             break;
         case 'eliminar':
-            echo "<script>alert('hola')</script>";
+            echo "<script>alert('api-php')</script>";
             $id = $_POST['id'];
             $data = Crud::__eliminar($id);
             break;

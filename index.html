@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
 
     <title>CRUD VUEJS - PHP</title>
     <style>
@@ -40,7 +41,7 @@
                 </div>
                 <!-- ----------------------------------- -->
                 <div class="table table-responsive">
-                    <table class="table table-striped" id="tabla">
+                    <table class="table table-striped" id="tabla" style="width:100%">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -83,21 +84,20 @@
                     </div>
                     <div class="modal-body">
                         <form method="POST">
-                            <input type="hidden" id="id" v-model="datos.id">
+                            <input type="hidden" id="id">
                             <div class="mb-3">
                                 <label for="nombres" class="form-label">Nombres:</label>
-                                <input type="text" class="form-control" id="nombres" v-model="datos.nombres" autofocus
+                                <input type="text" class="form-control" id="nombres" autofocus
                                     required>
                             </div>
                             <div class="mb-3">
                                 <label for="direccion" class="form-label">Direccion:</label>
-                                <input type="text" class="form-control" id="direccion" v-model="datos.direccion"
+                                <input type="text" class="form-control" id="direccion" 
                                     required>
                             </div>
                             <div class="mb-3">
                                 <label for="Edad" class="form-label">Edad:</label>
-                                <input type="number" min="18" placeholder="18" class="form-control" id="edad"
-                                    v-model="datos.edad" required>
+                                <input type="number" min="18" placeholder="18" class="form-control" id="edad" required>
                             </div>
                         </form>
                     </div>
@@ -137,6 +137,8 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
     <!-- focus de inicio al modal -->
     <script type="text/javascript">
         $(document).ready(function () {
